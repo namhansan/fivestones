@@ -47,7 +47,7 @@
   }
   header.nav.scrolled{ background: rgba(10,20,36,0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
   .nav-inner{ display:flex; align-items:center; justify-content:space-between; }
-  .brand{ display:flex; align-items:center; gap:12px; font-weight:600; letter-spacing:.04em; font-size: 16px; }
+  .brand{ display:flex; align-items:center; gap:12px; font-weight:600; letter-spacing:.04em; font-size: 16px; cursor:pointer; }
   .brand img{ height: 46px; width:auto; }
   .nav-links{ display:flex; gap: 34px; font-size: 13.5px; letter-spacing:.03em; color: var(--cream-dim); }
   .nav-links a:hover{ color: var(--gold-bright); }
@@ -192,6 +192,55 @@
   }
   .btn-download:hover{ transform: translateY(-2px); box-shadow: 0 10px 30px rgba(217,185,120,0.25); }
 
+  /* ---------- Contact ---------- */
+  .contact{ padding: 110px 0 100px; border-top: 1px solid var(--line); }
+  .contact .head{ max-width: 620px; }
+  .contact h2{ font-size: clamp(24px, 3.6vw, 34px); font-weight:700; line-height:1.4; }
+  .contact p.lead{ margin-top:16px; color: var(--cream-dim); font-weight:300; font-size:15px; line-height:1.8; }
+  .contact-grid{ margin-top: 50px; display:grid; grid-template-columns: 1fr 1.3fr; gap: 60px; }
+  .contact-info{ border-top: 1px solid var(--line); padding-top: 24px; }
+  .contact-info .row{ margin-bottom: 22px; }
+  .contact-info .k{ font-size:11px; letter-spacing:.16em; color:var(--taupe); text-transform:uppercase; margin-bottom:6px; }
+  .contact-info .v{ font-size:14.5px; color: var(--cream-dim); }
+  .contact-info .v.placeholder{ color: var(--taupe); font-style: italic; }
+
+  form.contact-form{ display:flex; flex-direction:column; gap: 18px; }
+  form.contact-form label{ font-size:12px; letter-spacing:.08em; color: var(--cream-dim); margin-bottom:8px; display:block; }
+  form.contact-form .req{ color: var(--terracotta); }
+  form.contact-form input, form.contact-form textarea{
+    width:100%; background: var(--navy-2); border: 1px solid var(--line); color: var(--cream);
+    padding: 13px 14px; border-radius: 6px; font-family: var(--sans); font-size: 14px; outline:none;
+    transition: border-color .2s;
+  }
+  form.contact-form input:focus, form.contact-form textarea:focus{ border-color: var(--gold); }
+  form.contact-form textarea{ min-height: 110px; resize: vertical; }
+  form.contact-form .row2{ display:flex; gap: 14px; }
+  form.contact-form .row2 > div{ flex:1; }
+  .consent{ display:flex; align-items:flex-start; gap:10px; font-size:12px; color: var(--cream-dim); margin-top:4px; }
+  .consent input{ margin-top:3px; accent-color: var(--gold-bright); }
+  .btn-submit{
+    margin-top: 6px; align-self:flex-start; background: var(--gold-bright); color: var(--navy); font-weight:700; font-size: 14px;
+    padding: 14px 30px; border-radius: 999px; border:none; cursor:pointer; transition: transform .25s, box-shadow .25s;
+  }
+  .btn-submit:hover{ transform: translateY(-2px); box-shadow: 0 10px 30px rgba(217,185,120,0.25); }
+  .form-note{ font-size:11.5px; color: var(--taupe); margin-top:-4px; }
+  @media (max-width: 780px){ .contact-grid{ grid-template-columns: 1fr; gap: 40px; } form.contact-form .row2{ flex-direction:column; } }
+
+  /* ---------- Back to top ---------- */
+  .to-top{
+    position: fixed; right: 28px; bottom: 28px; z-index: 95;
+    width: 46px; height: 46px; border-radius: 50%;
+    background: var(--navy-2); border: 1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; opacity:0; pointer-events:none; transform: translateY(10px);
+    transition: opacity .3s, transform .3s, background .25s, border-color .25s;
+  }
+  .to-top.show{ opacity:1; pointer-events:auto; transform: translateY(0); }
+  .to-top:hover{ background: var(--gold-bright); border-color: var(--gold-bright); }
+  .to-top:hover svg path{ stroke: var(--navy); }
+  .to-top svg path{ stroke: var(--gold-bright); transition: stroke .25s; }
+  @media (max-width: 640px){ .to-top{ right: 18px; bottom: 18px; width:42px; height:42px; } }
+
   footer{ padding: 60px 0 44px; border-top: 1px solid var(--line); }
   .foot-inner{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap: 24px; }
   .foot-brand{ display:flex; align-items:center; gap:12px; }
@@ -205,12 +254,12 @@
 
 <header class="nav" id="siteNav">
   <div class="wrap nav-inner">
-    <div class="brand"><img src="images/logo-icon.png" alt="FIVE STONES 로고"> FIVE STONES</div>
+    <a href="#" class="brand" id="brandHome" aria-label="맨 위로"><img src="images/logo-icon.png" alt="FIVE STONES 로고"> FIVE STONES</a>
     <nav class="nav-links">
-      <a href="#solution">솔루션</a>
-      <a href="#traction">레퍼런스</a>
-      <a href="#vision">비전</a>
-      <a href="#download">회사소개서</a>
+      <a href="#solution">Solution</a>
+      <a href="#traction">Reference</a>
+      <a href="#vision">Vision</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -226,6 +275,10 @@
   <div class="line"></div>
   <div class="stone" data-target="stone-5" title="페스티벌 OS"></div>
 </div>
+
+<button class="to-top" id="toTop" aria-label="맨 위로 이동">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M12 5L6 11M12 5L18 11" stroke="#d9b978" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
 
 <!-- HERO -->
 <section class="hero">
@@ -250,6 +303,7 @@
   <div class="eyebrow-row"><span class="num">02</span><span class="label">Why Five Stones</span><span class="rule"></span></div>
   <h2>축제에서 반복되는 5대 문제,<br>그에 대응하는 5개 역량</h2>
   <p>매년 1,200개 이상의 축제가 같은 다섯 가지 문제를 반복합니다. 파이브스톤스는 각 문제에 정확히 대응하는 다섯 가지 검증된 역량으로 축제 F&amp;B를 처음부터 끝까지 책임집니다.</p>
+  <p style="margin-top:14px;"><strong style="color:var(--gold-bright); font-weight:600;">왜 파이브스톤스인가.</strong> 20년 이상 검증된 실행력, 반복될수록 강해지는 생태계, 그리고 지금 열리고 있는 시장. 외식이 '끼니'에서 '경험'으로 이동하며, 축제 F&amp;B 수요는 셰프 IP와 프리미엄 큐레이션 중심으로 재편되고 있습니다.</p>
   <span class="locality">지역성(Locality) — 다섯 역량을 관통하는 공통 설계 기반</span>
 </section>
 
@@ -280,6 +334,10 @@
     <div class="field">
       <div class="k">현장 검증</div>
       <div class="v">구미라면축제 35만 명 · 남도국제미식산업박람회 71만 명(39개국) · 남산골한옥마을 월간소반 미식마켓 · 양양송이축제 미식존</div>
+    </div>
+    <div class="field" style="border-top:none; padding-top:0; margin-top:12px;">
+      <div class="k">해외 벤치마크</div>
+      <div class="v">Taste of Chicago · SOBEWFF · Clitheroe Food Festival · Maine Lobster Festival — 해외 성공 축제는 F&amp;B를 통째로 운영하는 단일 주체를 통해 스폰서·티켓·객단가·정산을 하나의 스키마로 통합합니다.</div>
     </div>
   </div>
 </article>
@@ -330,7 +388,7 @@
 <section class="traction wrap" id="traction">
   <div class="eyebrow-row"><span class="num">03</span><span class="label">Traction</span><span class="rule"></span></div>
   <h2>20년 이상 현장에서 검증된 실행력</h2>
-  <p class="lead">반복될수록 강해지는 생태계로, 대한민국을 대표하는 축제 현장에서 파이브스톤스의 역량을 증명해왔습니다.</p>
+  <p class="lead">후발주자가 쉽게 복제할 수 없는 실행 데이터가 파이브스톤스의 해자입니다. 반복될수록 강해지는 생태계로, 대한민국을 대표하는 축제 현장에서 역량을 증명해왔습니다.</p>
   <div class="grid-fest">
     <div class="cell"><div class="name">순천만국제정원박람회</div><div class="tag">가든스테이 · 지속가능성 감독</div></div>
     <div class="cell"><div class="name">구미라면축제</div><div class="tag">총감독 · 35만 명</div></div>
@@ -360,11 +418,63 @@
   </a>
 </section>
 
+<!-- CONTACT -->
+<section class="contact wrap" id="contact">
+  <div class="head">
+    <div class="eyebrow-row"><span class="num">04</span><span class="label">Contact</span><span class="rule"></span></div>
+    <h2>파이브스톤스와 함께 일해보고 싶다면</h2>
+    <p class="lead">축제 F&amp;B 운영 제안, 파트너십, 투자 문의 등 어떤 이야기든 남겨주세요. 담당자가 순차적으로 확인 후 회신드립니다.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="row">
+        <div class="k">Email</div>
+        <div class="v placeholder">[문의 이메일 주소를 입력해주세요]</div>
+      </div>
+      <div class="row">
+        <div class="k">Tel</div>
+        <div class="v placeholder">[대표 전화번호를 입력해주세요]</div>
+      </div>
+      <div class="row">
+        <div class="k">Address</div>
+        <div class="v placeholder">[사무실 주소를 입력해주세요]</div>
+      </div>
+    </div>
+
+    <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p class="form-note" style="display:none;"><label>이 항목은 채우지 마세요: <input name="bot-field"></label></p>
+
+      <div class="row2">
+        <div>
+          <label>이메일 <span class="req">*</span></label>
+          <input type="email" name="email" required>
+        </div>
+        <div>
+          <label>연락처 <span class="req">*</span></label>
+          <input type="tel" name="phone" placeholder="010-0000-0000" required>
+        </div>
+      </div>
+      <div>
+        <label>문의 내용 <span class="req">*</span></label>
+        <textarea name="message" required></textarea>
+      </div>
+      <label class="consent">
+        <input type="checkbox" required>
+        <span>개인정보 수집 및 이용에 동의합니다. 문의 처리 목적으로만 사용되며, 처리 완료 후 파기됩니다.</span>
+      </label>
+      <button type="submit" class="btn-submit">제출하기</button>
+      <p class="form-note">제출된 문의는 Netlify Forms를 통해 접수됩니다.</p>
+    </form>
+  </div>
+</section>
+
 <footer>
   <div class="wrap foot-inner">
     <div class="foot-brand"><img src="images/logo-icon.png" alt="FIVE STONES"><span>(주)파이브스톤스</span></div>
     <div class="foot-meta">
-      대표이사 윤성진<br>
+      대표이사 윤성진 · [주소 입력 예정] · [전화번호 입력 예정]<br>
       © 2026 FIVE STONES. All rights reserved.
     </div>
   </div>
@@ -375,6 +485,21 @@
   const nav = document.getElementById('siteNav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // logo click -> scroll to top
+  document.getElementById('brandHome').addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // back to top button
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    toTop.classList.toggle('show', window.scrollY > 800);
+  });
+  toTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   // stone tracker: highlight active section
