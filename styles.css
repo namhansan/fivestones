@@ -123,9 +123,11 @@
   .stone:hover .stone-media img{ transform: scale(1.08); }
   .stone-media::after{ content:''; position:absolute; inset:0; background: linear-gradient(180deg, rgba(10,20,36,0.05), rgba(10,20,36,0.35)); }
   .stone-copy{ padding: 70px 56px; display:flex; flex-direction:column; justify-content:center; }
-  .stone-copy .stone-head{ display:flex; align-items:center; gap:18px; margin-bottom: 26px; }
-  .stone-copy .stone-num{ font-family: var(--serif); font-size: 56px; font-weight:700; color: var(--gold-bright); line-height:1; }
-  .stone-copy .stone-label{ font-size: 13px; letter-spacing:.2em; color: var(--cream-dim); text-transform:uppercase; font-weight:700; line-height:1.5; border-left:1px solid var(--line); padding-left:16px; }
+  .stone-copy .stone-tag{
+    font-size: 20px; letter-spacing:.14em; color: var(--gold-bright); text-transform:uppercase;
+    margin-bottom: 20px; font-weight:700; position:relative; padding-bottom:14px;
+  }
+  .stone-copy .stone-tag::after{ content:''; position:absolute; left:0; bottom:0; width:36px; height:2px; background: var(--gold-bright); }
   .stone-copy h3{ font-size: clamp(22px, 2.8vw, 30px); font-weight:700; line-height:1.4; max-width: 480px; }
   .stone-copy .desc{ margin-top: 16px; color: var(--cream-dim); font-weight:300; max-width: 460px; font-size: 15px; }
   .stone-copy .field{
