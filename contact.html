@@ -10,17 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
 <link rel="stylesheet" href="styles.css">
-<style>
-  .page-hero{
-    min-height: 46vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
-    padding: 140px 24px 60px;
-    background: linear-gradient(180deg, rgba(8,15,27,0.55) 0%, rgba(8,15,27,0.8) 70%, var(--navy) 100%),
-                url('images/market-stall.jpg') center/cover no-repeat;
-  }
-  .page-hero .crumb{ font-size:12px; letter-spacing:.1em; color: var(--cream-dim); margin-top:14px; }
-  .page-hero .crumb a{ color: var(--gold-bright); }
-  .page-hero h1{ font-size: clamp(30px,5vw,48px); font-weight:800; }
-</style>
 </head>
 <body>
 
@@ -37,7 +26,8 @@
   </div>
 </header>
 
-<section class="page-hero">
+<section class="page-hero" style="background-image: linear-gradient(180deg, rgba(8,15,27,0.55) 0%, rgba(8,15,27,0.8) 70%, #0a1424 100%), url('images/market-stall.jpg');">
+  <div class="eyebrow2">Get in touch</div>
   <h1>Contact</h1>
   <div class="crumb"><a href="index.html">Home</a> · Contact</div>
 </section>
