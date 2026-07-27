@@ -105,7 +105,7 @@
     max-width: 640px; font-weight: 300; letter-spacing: .01em;
   }
   .hero .scrolldown{
-    position:absolute; bottom: 40px; left:50%; transform: translateX(-50%);
+    position:absolute; bottom: 40px; left:50%; transform: translateX(-50%); z-index:2;
     font-size: 11px; letter-spacing:.25em; color: var(--cream-dim); text-transform:uppercase;
     display:flex; flex-direction:column; align-items:center; gap: 10px;
   }
@@ -120,6 +120,14 @@
   }
   .manifesto blockquote strong{ font-weight:600; color: var(--gold-bright); }
   .manifesto .mark{ font-family: var(--serif); font-size: 54px; color: var(--gold); opacity:.65; display:block; margin-bottom: 6px; }
+
+  /* ---------- CXD Identity ---------- */
+  .cxd{ padding: 90px 0; text-align:center; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .cxd-inner{ max-width:720px; margin:0 auto; }
+  .cxd-label{ font-size:12px; letter-spacing:.28em; color:var(--gold-bright); text-transform:uppercase; margin-bottom:20px; font-weight:700; }
+  .cxd h2{ font-size:clamp(24px,3.6vw,34px); font-weight:700; line-height:1.4; }
+  .cxd h2 span{ color:var(--gold-bright); }
+  .cxd p{ margin-top:20px; color:var(--cream-dim); font-weight:300; font-size:15.5px; line-height:1.9; }
 
   /* ---------- Section shared ---------- */
   .eyebrow-row{ display:flex; align-items:center; gap: 14px; margin-bottom: 18px; }
@@ -301,6 +309,9 @@
   @media (max-width: 640px){ .to-top{ right: 18px; bottom: 18px; width:42px; height:42px; } }
 
   footer{ padding: 70px 0 0; border-top: 1px solid var(--line); }
+  .closing-quote{ padding: 70px 0 90px; text-align:center; }
+  .closing-quote .cq-text{ font-family: var(--serif); font-weight:300; font-style:italic; font-size: clamp(19px,2.6vw,26px); color: var(--cream); }
+  .closing-quote .cq-attr{ margin-top:14px; font-size:13px; letter-spacing:.08em; color: var(--gold-bright); }
   .foot-grid{ display:grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; padding-bottom: 50px; }
   .foot-brand{ display:flex; align-items:center; gap:12px; }
   .foot-brand img{ height:40px; }
