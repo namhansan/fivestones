@@ -54,10 +54,17 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="eyebrow">INVESTMENT-GRADE FESTIVAL F&amp;B PLATFORM</div>
-  <h1>페스티벌 F&amp;B의 <em>새로운 기준</em>을<br>만드는 회사</h1>
-  <p>지역의 미식 · 콘텐츠 · 사람 · 지속가능성 · 데이터를 하나로 잇는<br>대한민국 축제 F&amp;B 서비스 플랫폼, 파이브스톤스</p>
-  <div class="scrolldown"><span>Scroll</span><span class="stick"></span></div>
+  <div class="hero-bg">
+    <div class="hero-bg-layer" id="heroBg1"></div>
+    <div class="hero-bg-layer" id="heroBg2"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="eyebrow">INVESTMENT-GRADE FESTIVAL F&amp;B PLATFORM</div>
+    <h1>페스티벌 F&amp;B의 <em>새로운 기준</em>을<br>만드는 회사</h1>
+    <p>지역의 미식 · 콘텐츠 · 사람 · 지속가능성 · 데이터를 하나로 잇는<br>대한민국 축제 F&amp;B 서비스 플랫폼, 파이브스톤스</p>
+    <div class="scrolldown"><span>Scroll</span><span class="stick"></span></div>
+  </div>
 </section>
 
 <!-- MANIFESTO -->
@@ -259,11 +266,29 @@
   </div>
   <div class="wrap foot-bottom">
     <div class="foot-bottom-left"><strong>Business info</strong> &nbsp;대표 윤성진 · 사업자등록번호 712-88-02981 · 이메일 tozio210@gmail.com</div>
-    <div class="foot-bottom-right">Copyright © 2026 주식회사 파이브스톤스. All rights reserved.</div>
+    <div class="foot-bottom-right">Copyright © 2026 주식회사 파이브스톤스 (Five Stones Co., Ltd.) All rights reserved.</div>
   </div>
 </footer>
 
 <script>
+  // hero background slideshow with crossfade + continuous Ken Burns zoom
+  (function heroSlideshow(){
+    const images = ['hero-market.jpg','food-spread.jpg','glamping.jpg','workshop.jpg','market-stall.jpg','kitchen-infra.jpg'];
+    const layers = [document.getElementById('heroBg1'), document.getElementById('heroBg2')];
+    if(!layers[0] || !layers[1]) return;
+    let idx = 0, current = 0;
+    layers[0].style.backgroundImage = `url('images/${images[0]}')`;
+    layers[0].classList.add('active');
+    setInterval(() => {
+      idx = (idx + 1) % images.length;
+      const next = (current + 1) % 2;
+      layers[next].style.backgroundImage = `url('images/${images[idx]}')`;
+      layers[next].classList.add('active');
+      layers[current].classList.remove('active');
+      current = next;
+    }, 5500);
+  })();
+
   // nav bg on scroll
   const nav = document.getElementById('siteNav');
   window.addEventListener('scroll', () => {

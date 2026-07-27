@@ -74,12 +74,23 @@
 
   /* ---------- Hero ---------- */
   .hero{
-    position: relative; min-height: 100vh; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; text-align:center;
+    position: relative; min-height: 100vh; overflow:hidden;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
     padding: 140px 24px 100px;
-    background: linear-gradient(180deg, rgba(8,15,27,0.55) 0%, rgba(8,15,27,0.72) 55%, var(--navy) 100%),
-                url('images/hero-market.jpg') center 30%/cover no-repeat;
   }
+  .hero-bg{ position:absolute; inset:0; z-index:0; }
+  .hero-bg-layer{
+    position:absolute; inset:0; background-size:cover; background-position:center 30%;
+    opacity:0; transition: opacity 2.2s ease-in-out;
+    animation: heroZoom 24s ease-in-out infinite alternate;
+  }
+  .hero-bg-layer.active{ opacity:1; }
+  @keyframes heroZoom{ from{ transform:scale(1); } to{ transform:scale(1.14); } }
+  .hero-overlay{
+    position:absolute; inset:0; z-index:1;
+    background: linear-gradient(180deg, rgba(8,15,27,0.55) 0%, rgba(8,15,27,0.72) 55%, var(--navy) 100%);
+  }
+  .hero-content{ position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; }
   .hero .eyebrow{
     font-size: 12.5px; letter-spacing: .32em; color: var(--gold-bright);
     text-transform: uppercase; margin-bottom: 26px; font-weight: 600;
@@ -294,7 +305,7 @@
   .foot-brand{ display:flex; align-items:center; gap:12px; }
   .foot-brand img{ height:40px; }
   .foot-brand .fb-name{ font-size:15px; font-weight:800; letter-spacing:.03em; color: var(--cream); }
-  .foot-brand .fb-tagline{ display:block; font-size:11px; color: var(--taupe); letter-spacing:.06em; margin-top:4px; }
+  .foot-brand .fb-tagline{ display:block; font-size:13px; color: var(--cream-dim); letter-spacing:.05em; margin-top:6px; font-weight:500; }
   .foot-office{ font-size:13px; font-weight:700; color: var(--gold-bright); margin-bottom:10px; }
   .foot-addr{ font-size:12.5px; color: var(--cream-dim); line-height:1.8; }
   .foot-tel{ font-size:12.5px; color: var(--cream-dim); margin-top:6px; }
@@ -309,7 +320,7 @@
   /* nav brand with tagline */
   .brand-text{ display:flex; flex-direction:column; line-height:1.2; }
   .brand-name{ font-size:16px; font-weight:700; letter-spacing:.03em; }
-  .brand-tagline{ font-size:10px; color: var(--taupe); letter-spacing:.06em; margin-top:3px; }
+  .brand-tagline{ font-size:12.5px; color: var(--cream-dim); letter-spacing:.05em; margin-top:4px; font-weight:500; }
 
 /* ---------- Sub-page hero (Contact, Stone details) ---------- */
 .page-hero{
