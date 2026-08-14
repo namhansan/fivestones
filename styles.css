@@ -10,6 +10,7 @@
     --taupe: #8c7a68;
     --line: rgba(244,239,227,0.14);
     --serif: 'Noto Serif KR', serif;
+    --script: 'Pinyon Script', cursive;
     --sans: 'PretendardVariable', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
   }
   *{ box-sizing: border-box; margin:0; padding:0; }
@@ -310,12 +311,13 @@
 
   footer{ padding: 70px 0 0; border-top: 1px solid var(--line); }
   .closing-quote{ padding: 70px 0 90px; text-align:center; }
-  .closing-quote .cq-text{ font-family: var(--serif); font-weight:300; font-style:italic; font-size: clamp(19px,2.6vw,26px); color: var(--cream); }
+  .closing-quote .cq-text{ font-family: var(--serif); font-weight:300; font-style:italic; font-size: clamp(18px,2.4vw,24px); color: var(--cream); max-width:640px; margin:0 auto; line-height:1.6; }
   .closing-quote .cq-attr{ margin-top:14px; font-size:13px; letter-spacing:.08em; color: var(--gold-bright); }
   .foot-grid{ display:grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; padding-bottom: 50px; }
   .foot-brand{ display:flex; align-items:center; gap:12px; }
   .foot-brand img{ height:40px; }
-  .foot-brand .fb-name{ font-size:15px; font-weight:800; letter-spacing:.03em; color: var(--cream); }
+  .foot-brand .fb-name{ font-size:15px; font-weight:800; letter-spacing:.03em; color: var(--cream); display:flex; align-items:baseline; gap:6px; }
+  .foot-brand .fb-name .script{ font-family: var(--script); font-size:26px; font-weight:400; color: var(--gold-bright); letter-spacing:0; line-height:1; }
   .foot-brand .fb-tagline{ display:block; font-size:13px; color: var(--cream-dim); letter-spacing:.05em; margin-top:6px; font-weight:500; }
   .foot-office{ font-size:13px; font-weight:700; color: var(--gold-bright); margin-bottom:10px; }
   .foot-addr{ font-size:12.5px; color: var(--cream-dim); line-height:1.8; }
@@ -330,7 +332,8 @@
 
   /* nav brand with tagline */
   .brand-text{ display:flex; flex-direction:column; line-height:1.2; }
-  .brand-name{ font-size:16px; font-weight:700; letter-spacing:.03em; }
+  .brand-name{ font-size:16px; font-weight:700; letter-spacing:.03em; display:flex; align-items:baseline; gap:5px; }
+  .brand-name .script{ font-family: var(--script); font-size:27px; font-weight:400; color: var(--gold-bright); letter-spacing:0; line-height:1; }
   .brand-tagline{ font-size:12.5px; color: var(--cream-dim); letter-spacing:.05em; margin-top:4px; font-weight:500; }
 
 /* ---------- Sub-page hero (Contact, Stone details) ---------- */
