@@ -300,6 +300,28 @@
   }
   @media (max-width: 640px){ .org-row{ flex-direction:column; gap:34px; } .org-row::before{ display:none; } .org-branch::before{ height:20px; } }
 
+  /* ---------- This Year's Projects ---------- */
+  .thisyear{ padding: 130px 0; border-top: 1px solid var(--line); }
+  .thisyear h2{ font-size: clamp(24px, 3.6vw, 34px); font-weight:700; }
+  .thisyear p.lead{ margin-top:16px; color: var(--cream-dim); font-weight:300; font-size:15px; }
+  .ty-grid{ margin-top:50px; display:grid; grid-template-columns: 1.6fr 1fr; gap:24px; align-items:stretch; }
+  .ty-anchor{
+    display:block; border:1px solid var(--line); border-radius:14px; overflow:hidden;
+    transition: border-color .25s, transform .25s;
+  }
+  .ty-anchor:hover{ border-color: var(--gold); transform: translateY(-3px); }
+  .ty-img{ aspect-ratio: 16/7; }
+  .ty-body{ padding: 28px 30px; }
+  .ty-tag{ font-size:11.5px; letter-spacing:.1em; color: var(--gold-bright); text-transform:uppercase; font-weight:700; }
+  .ty-title{ margin-top:10px; font-size:22px; font-weight:700; color:var(--cream); }
+  .ty-desc{ margin-top:10px; font-size:13.5px; color:var(--cream-dim); line-height:1.75; font-weight:300; }
+  .ty-stats{ margin-top:16px; display:flex; gap:8px; flex-wrap:wrap; }
+  .ty-stats span{ font-size:12px; padding:5px 12px; border:1px solid var(--line); border-radius:999px; color:var(--cream-dim); }
+  .ty-card{
+    border:1px solid var(--line); border-radius:14px; padding:28px 26px; display:flex; flex-direction:column;
+  }
+  .ty-card .ty-link{ margin-top:auto; padding-top:18px; font-size:13px; font-weight:700; color:var(--gold-bright); }
+  @media (max-width: 780px){ .ty-grid{ grid-template-columns:1fr; } }
 
   /* ---------- FAQ ---------- */
   .faq{ padding: 30px 0 100px; }
@@ -312,11 +334,20 @@
 
   /* ---------- Contact ---------- */
   .contact{ padding: 60px 0 100px; }
-  .contact-link{ padding: 110px 0; border-top: 1px solid var(--line); text-align:center; }
+  .contact-link{ padding: 110px 0 130px; border-top: 1px solid var(--line); text-align:center; }
   .contact-link .eyebrow-row{ justify-content:center; max-width:500px; margin:0 auto 18px; }
   .contact-link h2{ font-size: clamp(22px,3.2vw,30px); font-weight:700; }
   .contact-link p.lead{ margin-top:14px; color:var(--cream-dim); font-weight:300; font-size:15px; }
   .contact-link .btn-download{ margin-top:28px; }
+
+  .ways-grid{ margin-top:50px; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); text-align:left; }
+  .way-card{ background:var(--navy); padding:30px 26px; }
+  .way-num{ font-family:var(--serif); font-size:22px; font-weight:700; color:var(--gold-bright); }
+  .way-title{ margin-top:14px; font-size:15.5px; font-weight:700; color:var(--cream); }
+  .way-desc{ margin-top:10px; font-size:13px; color:var(--cream-dim); line-height:1.7; font-weight:300; }
+  .way-tag{ margin-top:14px; font-size:11.5px; color:var(--taupe); letter-spacing:.03em; }
+  @media (max-width:780px){ .ways-grid{ grid-template-columns:1fr; } }
+
   .contact .head{ max-width: 620px; }
   .contact h2{ font-size: clamp(24px, 3.6vw, 34px); font-weight:700; line-height:1.4; }
   .contact p.lead{ margin-top:16px; color: var(--cream-dim); font-weight:300; font-size:15px; line-height:1.8; }
@@ -365,9 +396,6 @@
   @media (max-width: 640px){ .to-top{ right: 18px; bottom: 18px; width:42px; height:42px; } }
 
   footer{ padding: 70px 0 0; border-top: 1px solid var(--line); }
-  .closing-quote{ padding: 70px 0 90px; text-align:center; }
-  .closing-quote .cq-text{ font-family: var(--serif); font-weight:300; font-style:italic; font-size: clamp(18px,2.4vw,24px); color: var(--cream); max-width:640px; margin:0 auto; line-height:1.6; }
-  .closing-quote .cq-attr{ margin-top:14px; font-size:13px; letter-spacing:.08em; color: var(--gold-bright); }
   .foot-grid{ display:grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; padding-bottom: 50px; }
   .foot-brand{ display:flex; align-items:center; gap:4px; }
   .foot-brand img{ height:40px; }
