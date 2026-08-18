@@ -128,22 +128,19 @@
   .hero .scrolldown .stick{ width:1px; height: 34px; background: linear-gradient(var(--gold-bright), transparent); animation: dropline 1.8s ease-in-out infinite; }
   @keyframes dropline{ 0%{ transform: scaleY(0); transform-origin: top; } 50%{ transform: scaleY(1); transform-origin: top; } 51%{ transform-origin: bottom; } 100%{ transform: scaleY(0); transform-origin: bottom; } }
 
-  /* ---------- Manifesto (quote) ---------- */
-  .manifesto{ padding: 160px 0; text-align:center; }
-  .manifesto blockquote{
+  /* ---------- Company / 사업 정의 (merged quote + definition) ---------- */
+  .cxd{ padding: 140px 0 90px; text-align:center; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .cxd-inner{ max-width:820px; margin:0 auto; }
+  .mark{ font-family: var(--serif); font-size: 54px; color: var(--gold); opacity:.65; display:block; margin-bottom: 6px; }
+  .cxd-quote{
     font-family: var(--serif); font-weight: 300;
-    font-size: clamp(22px, 3.6vw, 38px); line-height: 1.6; max-width: 880px; margin: 0 auto;
+    font-size: clamp(22px, 3.6vw, 36px); line-height: 1.6; max-width: 800px; margin: 0 auto;
   }
-  .manifesto blockquote strong{ font-weight:600; color: var(--gold-bright); }
-  .manifesto .mark{ font-family: var(--serif); font-size: 54px; color: var(--gold); opacity:.65; display:block; margin-bottom: 6px; }
-
-  /* ---------- CXD Identity ---------- */
-  .cxd{ padding: 90px 0; text-align:center; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-  .cxd-inner{ max-width:720px; margin:0 auto; }
-  .cxd-label{ font-size:12px; letter-spacing:.28em; color:var(--gold-bright); text-transform:uppercase; margin-bottom:20px; font-weight:700; }
+  .cxd-quote strong{ font-weight:600; color: var(--gold-bright); }
+  .cxd-label{ font-size:12px; letter-spacing:.28em; color:var(--gold-bright); text-transform:uppercase; margin-bottom:16px; font-weight:700; }
   .cxd h2{ font-size:clamp(24px,3.6vw,34px); font-weight:700; line-height:1.4; }
   .cxd h2 span{ color:var(--gold-bright); }
-  .cxd p{ margin-top:20px; color:var(--cream-dim); font-weight:300; font-size:15.5px; line-height:1.9; }
+  .cxd p{ margin-top:8px; color:var(--cream-dim); font-weight:300; font-size:15.5px; line-height:1.9; max-width:600px; margin-left:auto; margin-right:auto; }
 
   /* ---------- Section shared ---------- */
   .eyebrow-row{ display:flex; align-items:center; gap: 14px; margin-bottom: 18px; }
@@ -490,9 +487,10 @@
 .carousel-row .carousel-card .fbody{ padding:16px; }
 .carousel-row .carousel-card .fname{ font-size:15px; }
 .carousel-row .carousel-card .fdesc{ font-size:13px; margin-top:8px; }
-@media (max-width: 1180px){ .carousel-row{ grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 640px){ .carousel-row{ grid-template-columns: repeat(2, 1fr); gap:12px; } }
-@media (max-width: 440px){ .carousel-row{ grid-template-columns: 1fr; } }
+.carousel-row.cols-4{ grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1180px){ .carousel-row{ grid-template-columns: repeat(3, 1fr); } .carousel-row.cols-4{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px){ .carousel-row{ grid-template-columns: repeat(2, 1fr); gap:12px; } .carousel-row.cols-4{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 440px){ .carousel-row{ grid-template-columns: 1fr; } .carousel-row.cols-4{ grid-template-columns: 1fr; } }
 .feature-card{ background: var(--navy-2); display:flex; flex-direction:column; }
 .feature-card .fimg{ width:100%; aspect-ratio: 16/10; overflow:hidden; }
 .feature-card .fimg img{ width:100%; height:100%; object-fit:cover; }
